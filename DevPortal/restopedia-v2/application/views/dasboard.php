@@ -31,11 +31,11 @@
                   <div class="logo hide-l">
                      <a href="../design/">RESTO<br /><strong>PEDIA</strong></a>
                   </div>
-                  <p class="nav-text">Custom menu text</p>
+                  <p class="nav-text">Options</p>
                   <div class="top-nav s-12 l-5">
                      <ul class="right top-ul chevron">
-                        <li><a href="<?php echo site_url('welcome/dasboard')?>">Home</a>
-                        </li>
+                        <li><a href="<?php echo site_url('welcome/dasboard')?>">Home</a></li>
+                        <li><a href="<?php echo site_url('welcome/about')?>">About</a></li>
                      </ul>
                   </div>
                   <ul class="s-12 l-2">
@@ -45,12 +45,10 @@
                   </ul>
                   <div class="top-nav s-12 l-5">
                      <ul class="top-ul chevron">
-                       <?php if($this->session->userdata('username')!="")
-                       {?>
-                       <li><a href="<?php echo site_url('welcome/dasboard')?>"><?php echo $this->session->userdata('username')?></a></li>
+                       <?php if($this->session->userdata('username')!="") {?>
+                         <li><a href="<?php echo site_url('welcome/dasboard')?>"><?php echo $this->session->userdata('username')?></a></li>
+                         <li><a href="<?php echo site_url('welcome/logout')?>">Sign Out</a></li>
                        <?php } ?>
-                        <li><a href="<?php echo site_url('welcome/logout')?>">Keluar</a>
-                        </li>
                      </ul>
                   </div>
                </div>
@@ -66,10 +64,10 @@
                   <div class="carousel-text">
                      <div class="line">
                         <div class="s-12 l-9">
-                           <h2>Suka Makan?</h2>
+                           <h2>RESTO<strong>PEDIA</strong></h2>
                         </div>
                         <div class="s-12 l-9">
-                           <p>Disini tempatnya nyari restoran!
+                           <p>Restaurant API Provider
                            </p>
                         </div>
                      </div>
@@ -80,10 +78,10 @@
                   <div class="carousel-text">
                      <div class="line">
                         <div class="s-12 l-9">
-                           <h2>Bingung mau makan dimana?</h2>
+                           <h2>With Us</h2>
                         </div>
                         <div class="s-12 l-9">
-                           <p>Kami menyediakan solusi bagi anda!
+                           <p>Popularize Indonesian Culinary
                            </p>
                         </div>
                      </div>
@@ -94,10 +92,10 @@
                   <div class="carousel-text">
                      <div class="line">
                         <div class="s-12 l-9">
-                           <h2>API Restoran Indonesia</h2>
+                           <h2>Indonesian Restaurant API</h2>
                         </div>
                         <div class="s-12 l-9">
-                           <p>Daftar Sekarang
+                           <p>Sign Up Now
                            </p>
                         </div>
                      </div>
@@ -111,18 +109,18 @@
                <div id="owl-demo2" class="owl-carousel owl-theme">
                   <div class="item">
                      <h2>Restopedia API</h2>
-                     <p class="s-12 m-12 l-8 center">Restopedia menyediakan REST API yang dapat digunakan untuk mengambil data restoran di seluruh Indonesia.
+                     <p class="s-12 m-12 l-8 center">Restopedia provides REST API which can use to get data of Indonesian restaurant.
                      </p>
                   </div>
                   <div class="item">
-                     <h2>Data API</h2>
-                     <p class="s-12 m-12 l-8 center">Data-data restoran dikumpulkan secara kolaboratif bersama-sama dengan menggunakan aplikasi android Restopedia. Validasi data
-       					           dapat dilihat dengan menggunakan votes yang ada dalam fitur aplikasi.
+                     <h2>API Data</h2>
+                     <p class="s-12 m-12 l-8 center">Data of restaurant collected collaboratively together using Android Application Restopedia.
+                       Data validation can be viewed by using the existing votes in the Application's featues.
                      </p>
                   </div>
                   <div class="item">
                      <h2>Output JSON</h2>
-                     <p class="s-12 m-12 l-8 center">Data tersebut akan diberikan kepada anda secara terbuka dalam JSON Format.
+                     <p class="s-12 m-12 l-8 center">The data will be given to you openly in JSON format.
                      </p>
                   </div>
                </div>
@@ -131,10 +129,10 @@
          <!-- GALLERY -->
          <div id="third-block">
             <div class="line">
-               <h2>Spesifikasi</h2>
-               <p class="subtitile">Setelah mendaftar, setiap pengguna akan diberikan API Key unik sebagai password yang digunakan untuk memanggil API Restopedia.<br><br>
- 					Dalam pemanggilan API letakan api key pada URL seperti berikut : <br>
-          <a href="restopedia.azurewebsites.net/restopedia-rest/index.php/API/restopedia/konten?api_key=YOUR_API_KEY">restopedia.azurewebsites.net/restopedia-rest/index.php/API/restopedia/konten?api_key=YOUR_API_KEY</a>
+               <h2>Spesification</h2>
+               <p class="subtitile">After registering, each user will be given a unique API Key as the password used to get data from API Restopedia. <br><br>
+                    Put the key into URL to get the data :<br>
+                <a href="restopedia.azurewebsites.net/restopedia-rest/index.php/API/restopedia/konten?api_key=YOUR_API_KEY">restopedia.azurewebsites.net/restopedia-rest/index.php/API/restopedia/konten?api_key=YOUR_API_KEY</a>
                </p>
             </div>
          </div>
@@ -142,8 +140,8 @@
          <div id="fourth-block">
             <div class="line">
                <h2>API KEY</h2><br>
-               <p class="subtitile">Gunakan API KEY dalam setiap pemanggilan API Restopedia.<br>
-                 <br> Nama Akun : <?php echo $this->session->userdata('username')?>
+               <p class="subtitile">Use API KEY into all of call to Restopedia API<br>
+                 <br> Account Name : <?php echo $this->session->userdata('username')?>
                  <br> Api Key : <?php echo $this->session->userdata('api_key')?>
                  <br><br> ---------------------------------------------------------------------------------------------------------------------------------------------------------</p>
             </div>
@@ -151,7 +149,7 @@
                <br>
                <h2>API Request</h2><br>
                <p class="subtitile">
-               Untuk mendapatkan seluruh data restoran yang ada :
+               To get all of the restaurant data in Indonesia :
                <br><br>
                restopedia.azurewebsites.net/restopedia-rest/index.php/API/restopedia/konten
                <br>
@@ -160,7 +158,7 @@
             </div>
             <div class="line">
                <h2>API Response</h2><br>
-               <p class="subtitile">Berikut ini contoh dari response output JSON dari API Restopedia:<br><br>
+               <p class="subtitile">This is example of JSON output from Restopedia API<br><br>
                  {<br>
                    "status": 200,<br>
                    "message": "Berhasil"<br>

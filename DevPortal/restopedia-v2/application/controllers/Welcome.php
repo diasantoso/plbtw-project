@@ -50,6 +50,11 @@ class Welcome extends CI_Controller {
 		$this->load->view('index');
 	}
 
+	public function about()
+	{
+		$this->load->view('about');
+	}
+
 	public function dasboard()
 	{
 		$this->load->view('dasboard');

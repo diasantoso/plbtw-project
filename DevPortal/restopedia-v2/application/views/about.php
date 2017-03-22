@@ -9,6 +9,7 @@
       <link href="<?php echo base_url(); ?>/assets/css/responsee.css" rel="stylesheet">
       <link href="<?php echo base_url(); ?>/assets/owl-carousel/owl.carousel.css" rel="stylesheet">
       <link href="<?php echo base_url(); ?>/assets/owl-carousel/owl.theme.css" rel="stylesheet">
+      <link href="<?php echo base_url(); ?>/assets/css/templatemo-style.css" rel="stylesheet">
       <!-- CUSTOM STYLE -->
       <link href="<?php echo base_url(); ?>/assets/css/template-style.css" rel="stylesheet">
       <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -33,21 +34,25 @@
                   <p class="nav-text">Options</p>
                   <div class="top-nav s-12 l-5">
                      <ul class="right top-ul chevron">
-                        <li><a href="<?php echo site_url('welcome/index')?>">Home</a></li>
+                        <li><a href="<?php echo site_url('welcome/dasboard')?>">Home</a></li>
                         <li><a href="<?php echo site_url('welcome/about')?>">About</a></li>
                      </ul>
                   </div>
                   <ul class="s-12 l-2">
                      <li class="logo hide-s hide-m">
-                        <a href="<?php echo site_url('welcome/index')?>">RESTO<br/><strong>PEDIA</strong></a>
+                        <a href="<?php echo site_url('welcome/dasboard')?>">RESTO<br/><strong>PEDIA</strong></a>
                      </li>
                   </ul>
                   <div class="top-nav s-12 l-5">
                      <ul class="top-ul chevron">
-                        <li><a href="<?php echo site_url('welcome/signup')?>">Sign Up</a>
-                        </li>
-                        <li><a href="<?php echo site_url('welcome/login')?>">Sign In</a>
-                        </li>
+                       <?php if($this->session->userdata('username')!="") {?>
+                         <li><a href="<?php echo site_url('welcome/dasboard')?>"><?php echo $this->session->userdata('username')?></a></li>
+                         <li><a href="<?php echo site_url('welcome/logout')?>">Sign Out</a></li>
+                       <?php } ?>
+                       <?php if($this->session->userdata('username')=="") { ?>
+                         <li><a href="<?php echo site_url('welcome/signup')?>">Sign Up</a></li>
+                         <li><a href="<?php echo site_url('welcome/login')?>">Sign In</a></li>
+                       <?php } ?>
                      </ul>
                   </div>
                </div>
@@ -59,80 +64,39 @@
          <div id="carousel">
             <div id="owl-demo" class="owl-carousel owl-theme">
                <div class="item">
-                  <img src="<?php echo base_url(); ?>/assets/img/resto1.jpg" alt="">
+                  <img src="<?php echo base_url(); ?>/assets/img/resto4.jpg" alt="">
                   <div class="carousel-text">
                      <div class="line">
                         <div class="s-12 l-9">
-                           <h2>RESTO<strong>PEDIA</strong></h2>
+                           <h2>WHO A<strong>RE WE ?</strong></h2>
                         </div>
                         <div class="s-12 l-9">
-                           <p>Restaurant API Provider
+                           <p>Whe are students from Atma Jaya Yogyakarta University <br>
+                              which made this API to complete final task from Web-based Development Services.
                            </p>
                         </div>
                      </div>
                   </div>
                </div>
                <div class="item">
-                  <img src="<?php echo base_url(); ?>/assets/img/resto2.jpg" alt="">
+                  <img src="<?php echo base_url(); ?>/assets/img/resto5.jpg" alt="">
                   <div class="carousel-text">
                      <div class="line">
                         <div class="s-12 l-9">
-                           <h2>With Us</h2>
+                           <h2>OUR T<strong>EAM ?</strong></h2>
                         </div>
                         <div class="s-12 l-9">
-                           <p>Popularize Indonesian Culinary
-                           </p>
+                          <p>Mikhael Diastama Santoso <br>
+                             Heryatmo Benediktus Sembiring <br>
+                             Eric Simahan <br>
+                             Vincentius Andri Setiawan <br>
+                             Sandi Prado Saragih <br>
+                             Agatha Santoso <br>
+                          </p>
                         </div>
                      </div>
                   </div>
                </div>
-               <div class="item">
-                  <img src="<?php echo base_url(); ?>/assets/img/resto3.jpg" alt="">
-                  <div class="carousel-text">
-                     <div class="line">
-                        <div class="s-12 l-9">
-                           <h2>Indonesian Restaurant API</h2>
-                        </div>
-                        <div class="s-12 l-9">
-                           <p>Sign Up Now
-                           </p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- FIRST BLOCK -->
-         <div id="fourth-block">
-            <div class="line">
-               <div id="owl-demo2" class="owl-carousel owl-theme">
-                  <div class="item">
-                     <h2>Restopedia API</h2>
-                     <p class="s-12 m-12 l-8 center">Restopedia provides REST API which can use to get data of Indonesian restaurant.
-                     </p>
-                  </div>
-                  <div class="item">
-                     <h2>API Data</h2>
-                     <p class="s-12 m-12 l-8 center">Data of restaurant collected collaboratively together using Android Application Restopedia.
-                       Data validation can be viewed by using the existing votes in the Application's featues.
-                     </p>
-                  </div>
-                  <div class="item">
-                     <h2>Output JSON</h2>
-                     <p class="s-12 m-12 l-8 center">The data will be given to you openly in JSON format.
-                     </p>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- GALLERY -->
-         <div id="third-block">
-            <div class="line">
-               <h2>Spesification</h2>
-               <p class="subtitile">After registering, each user will be given a unique API Key as the password used to get data from API Restopedia. <br><br>
-                    Put the key into URL to get the data :<br>
-                <a href="restopedia.azurewebsites.net/restopedia-rest/index.php/API/restopedia/konten?api_key=YOUR_API_KEY">restopedia.azurewebsites.net/restopedia-rest/index.php/API/restopedia/konten?api_key=YOUR_API_KEY</a>
-               </p>
             </div>
          </div>
       </section>

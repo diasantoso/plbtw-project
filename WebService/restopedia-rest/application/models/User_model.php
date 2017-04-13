@@ -5,31 +5,40 @@ class User_model extends CI_Model{
 	{
 		parent:: __construct();
 		$this->load->database();
+		$this->load->helper('string');
 	}
 
-	function GetUserInfo($LoggedEmail)
+	function GetUserInfo($LoggedUsername)
 	{
-		$this->db->select()->where('Email', $LoggedEmail);
+		$this->db->select()->where('Username', $LoggedUsername);
 		$this->db->from('user');
 
 		$query = $this->db->get();
 		return $query->result();
 	}
 
-	function SignUp($Email,$Password){
+	function SignUp($Username,$Password){
+		$randstring = random_string('alnum', 20);
+		$this->db->select_max('ID_User');
+		$query = $this->db->get('user');
+		foreach ($query->result() as $row)
+		{
+			$maxid = $row->ID_User+1;
+		}
 		$data = array(
-				'Email' => $Email,
-				'Password' => $Password,
+				'username' => $Username,
+				'password' => $Password,
+				'api_key' => $randstring.$maxid,
 			);
 
 		$this->db->insert('user',$data);
 	}
 
-	function Login($Email,$Password){
+	function Login($Username,$Password){
 		$this->db->select('*');
 		$this->db->from('user');
-		$this->db->where('Email',$Email);
-		$this->db->where('Password',$Password);
+		$this->db->where('username',$Username);
+		$this->db->where('password',$Password);
 
 		$query = $this->db->get();
 
@@ -63,10 +72,10 @@ class User_model extends CI_Model{
 		}
 	}
 
-	function GetTotalLikes($LoggedEmail){
+	function GetTotalLikes($LoggedUsername){
 		$this->db->select_sum('Jumlah_Likes');
 		$this->db->from('konten_resto');
-		$this->db->where('Email',$LoggedEmail);
+		$this->db->where('Username',$LoggedUsername);
 
 		$query = $this->db->get();
 
@@ -78,5 +87,4 @@ class User_model extends CI_Model{
 			return 0;
 		}
 	}
-
 }

@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `konten_resto` (
   `ID_Resto` int(11) NOT NULL AUTO_INCREMENT,
-  `Email` varchar(255) NOT NULL,
+  `Username` varchar(255) NOT NULL,
   `Nama_Resto` varchar(255) NOT NULL,
   `Detail_Resto` longtext NOT NULL,
   `Alamat` longtext NOT NULL,
@@ -43,9 +43,9 @@ CREATE TABLE IF NOT EXISTS `konten_resto` (
 -- Dumping data for table `konten_wisata`
 --
 
-INSERT INTO `konten_resto` (`ID_Resto`, `Email`, `Nama_Resto`, `Detail_Resto`, `Alamat`, `Kota`, `Gambar`, `Jumlah_Likes`, `Created_at`) VALUES
-(1, 'dias@gmail.com', 'RM Bunda Saliro', 'Rumah makan padang yang menyediakan makanan khas padang yang lezat', 'Jalan Kedamaian no 100, Sleman', 'Yogyakarta', 'http://hnwtvc.com/tournesiapic/konten1.jpg', 1, '2017-03-21 10:35:16'),
-(2, 'dias@gmail.com', 'Mie Afui', 'Tempat makan yang menjual mie ayam yang enak namun kotor', 'Jalan Tambakbayan no 77, Sleman', 'Yogyakarta', 'http://hnwtvc.com/tournesiapic/konten2.jpg', 0, '2017-03-22 00:09:37');
+INSERT INTO `konten_resto` (`ID_Resto`, `Username`, `Nama_Resto`, `Detail_Resto`, `Alamat`, `Kota`, `Gambar`, `Jumlah_Likes`, `Created_at`) VALUES
+(1, 'dias', 'RM Bunda Saliro', 'Rumah makan padang yang menyediakan makanan khas padang yang lezat', 'Jalan Kedamaian no 100, Sleman', 'Yogyakarta', 'http://restopedia.890m.com/restopedia-doc/gambar1.jpg', 1, '2017-03-21 10:35:16'),
+(2, 'dias', 'Mie Afui', 'Tempat makan yang menjual mie ayam yang enak namun kotor', 'Jalan Tambakbayan no 77, Sleman', 'Yogyakarta', 'http://restopedia.890m.com/restopedia-doc/gambar2.jpg', 0, '2017-03-22 00:09:37');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

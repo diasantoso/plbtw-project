@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'restopedia',
+	'hostname' => 'mysql.idhostinger.com',
+	'username' => 'u602111035_resto',
+	'password' => '123456',
+	'database' => 'u602111035_resto',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

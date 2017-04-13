@@ -7,25 +7,25 @@ class Konten_model extends CI_Model{
 		$this->load->database();
 	}
 
-	function AddKonten($Email, $Nama_Resto, $Detail_Resto, $Alamat, $Kota, $Gambar, $Nama_Gambar)
+	function AddKonten($Username, $Nama_Resto, $Detail_Resto, $Alamat, $Kota, $Gambar, $Nama_Gambar)
 	{
 		$konten = array(
-			'Email' => $Email,
+			'Username' => $Username,
 			'Nama_Resto' => $Nama_Resto,
 			'Detail_Resto' => $Detail_Resto,
 			'Alamat' => $Alamat,
 			'Kota' => $Kota,
-			'Gambar' => 'http://hnwtvc.com/tournesiapic/'.$Nama_Gambar
+			'Gambar' => 'http://restopedia.890m.com/restopedia-doc/'.$Nama_Gambar
 		);
 
-	        $imsrc = base64_decode($Gambar_Wisata);
-	        $fp = fopen($_SERVER['DOCUMENT_ROOT'].'/tournesiapic/'.$Nama_Gambar.'', 'w');
+	        $imsrc = base64_decode($Gambar);
+	        $fp = fopen($_SERVER['DOCUMENT_ROOT'].'/restopedia-doc/'.$Nama_Gambar.'', 'w');
 	        fwrite($fp, $imsrc);
 
 		$this->db->insert('konten_resto',$konten);
 	}
 
-	function GetKonten($LoggedEmail)
+	function GetKonten($LoggedUsername)
 	{
 		$this->db->select();
 		$this->db->from('konten_resto')->order_by('Created_at', 'DESC');
@@ -36,13 +36,13 @@ class Konten_model extends CI_Model{
 
 		foreach($query->result() as $row) {
 
-			$this->db->select('flag')->where('Email', $LoggedEmail)->where('ID_Resto', $row->ID_Resto);
+			$this->db->select('flag')->where('Username', $LoggedUsername)->where('ID_Resto', $row->ID_Resto);
 			$this->db->from('user_likes');
 			$flagquery = $this->db->get();
 
 			$result[] = array(
 			'ID_Resto' => $row->ID_Resto,
-			'Email' => $row->Email,
+			'Username' => $row->Username,
 			'Nama_Resto' => $row->Nama_Resto,
 			'Detail_Resto' => $row->Detail_Resto,
 			'Alamat' => $row->Alamat,
@@ -56,7 +56,7 @@ class Konten_model extends CI_Model{
 		return $result;
 	}
 
-	function GetKontenHot($LoggedEmail)
+	function GetKontenHot($LoggedUsername)
 	{
 		$this->db->select();
 		$this->db->from('konten_resto')->order_by('Jumlah_Likes', 'DESC');
@@ -67,13 +67,13 @@ class Konten_model extends CI_Model{
 
 		foreach($query->result() as $row) {
 
-			$this->db->select('flag')->where('Email', $LoggedEmail)->where('ID_Resto', $row->ID_Resto);
+			$this->db->select('flag')->where('Username', $LoggedUsername)->where('ID_Resto', $row->ID_Resto);
 			$this->db->from('user_likes');
 			$flagquery = $this->db->get();
 
 			$result[] = array(
 			'ID_Resto' => $row->ID_Resto,
-			'Email' => $row->Email,
+			'Username' => $row->Username,
 			'Nama_Resto' => $row->Nama_Resto,
 			'Detail_Resto' => $row->Detail_Resto,
 			'Alamat' => $row->Alamat,

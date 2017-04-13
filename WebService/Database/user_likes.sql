@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `user_likes` (
   `ID_Like` int(11) NOT NULL AUTO_INCREMENT,
-  `Email` varchar(255) NOT NULL,
+  `Username` varchar(255) NOT NULL,
   `ID_Resto` int(11) NOT NULL,
   `Flag` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID_Like`)
@@ -38,16 +38,15 @@ CREATE TABLE IF NOT EXISTS `user_likes` (
 -- Dumping data for table `user_votes`
 --
 
-INSERT INTO `user_likes` (`ID_Like`, `Email`, `ID_Resto`, `Flag`) VALUES
-(1, 'dias@gmail.com', 1, 2),
-(2, 'dias@gmail.com', 3, 0),
-(3, 'dias@gmail.com', 10, 2),
-(4, 'dias@gmail.com', 9, 0),
-(5, 'dias@gmail.com', 13, 0),
-(6, 'dias@gmail.com', 12, 0),
-(7, 'dias@gmail.com', 15, 0),
-(8, 'dias@gmail.com', 17, 0),
-(9, 'dias@gmail.com', 18, 0);
+INSERT INTO `user_likes` (`ID_Like`, `Username`, `ID_Resto`, `Flag`) VALUES
+(1, 'dias', 1, 2),
+(2, 'dias', 2, 0),
+(3, 'hery', 1, 2),
+(4, 'hery', 2, 0),
+(5, 'bagong', 1, 0),
+(6, 'bagong', 2, 0),
+(7, 'eric', 1, 0),
+(8, 'eric', 2, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

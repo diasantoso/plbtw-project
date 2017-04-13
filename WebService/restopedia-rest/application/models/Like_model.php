@@ -7,11 +7,11 @@ class Like_model extends CI_Model{
 		$this->load->database();
 	}
 
-	function LikeUp($Email,$ID_Resto){
+	function LikeUp($Username,$ID_Resto){
 
 		$this->db->select('*');
 		$this->db->from('user_likes');
-		$this->db->where('Email',$Email);
+		$this->db->where('Username',$Username);
 		$this->db->where('ID_Resto',$ID_Resto);
 
 		$query = $this->db->get();
@@ -23,7 +23,7 @@ class Like_model extends CI_Model{
 		if($query ->num_rows()==0)
 		{
 			$data = array(
-				'Email' => $Email,
+				'Username' => $Username,
 				'ID_Resto' => $ID_Resto,
 				'Flag' => 2,
 			);
@@ -36,7 +36,7 @@ class Like_model extends CI_Model{
 				'Flag' => 2,
 			);
 
-			$this->db->update('user_likes',$data,array('Email'	=> $Email,'ID_Resto' => $ID_Resto));
+			$this->db->update('user_likes',$data,array('Username'	=> $Username,'ID_Resto' => $ID_Resto));
 		}
 
 		$datacount=array(
@@ -47,18 +47,18 @@ class Like_model extends CI_Model{
 		$this->db->update('konten_wisata',$addTotalRate,array('ID_Resto' => $ID_Resto));
 	}
 
-	function LikeNormal($Email,$ID_Resto){
+	function LikeNormal($Username,$ID_Resto){
 
 		$this->db->select('*');
 		$this->db->from('user_likes');
-		$this->db->where('Email',$Email);
+		$this->db->where('Username',$Username);
 		$this->db->where('ID_Resto',$ID_Resto);
 
 		$query = $this->db->get();
 
 		$this->db->select('Flag');
 		$this->db->from('user_likes');
-		$this->db->where('Email',$Email);
+		$this->db->where('Username',$Username);
 		$this->db->where('ID_Resto',$ID_Resto);
 
 		$flag_rate_res = $this->db->get();
@@ -78,7 +78,7 @@ class Like_model extends CI_Model{
 		if($query ->num_rows()==0)
 		{
 			$data = array(
-				'Email' => $Email,
+				'Username' => $Username,
 				'ID_Resto' => $ID_Resto,
 				'Flag' => 0,
 			);
@@ -91,7 +91,7 @@ class Like_model extends CI_Model{
 				'Flag' => 0,
 			);
 
-			$this->db->update('user_likes',$data,array('Email'	=> $Email,'ID_Resto' => $ID_Resto));
+			$this->db->update('user_likes',$data,array('Username'	=> $Username,'ID_Resto' => $ID_Resto));
 		}
 
 				$datacount=array(

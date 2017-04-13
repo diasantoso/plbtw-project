@@ -1,1 +1,1 @@
-Halaman awal : localhost/restopedia-v2/index.php
+Halaman awal : localhost/restopedia-dev/index.php

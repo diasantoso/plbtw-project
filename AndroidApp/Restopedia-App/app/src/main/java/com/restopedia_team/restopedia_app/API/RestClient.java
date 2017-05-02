@@ -1,9 +1,9 @@
 package com.restopedia_team.restopedia_app.API;
 
-import com.plbtw_team.restopedia.Helper.ToStringConverter;
-import com.plbtw_team.restopedia.Model.APIBaseResponse;
-import com.plbtw_team.restopedia.Model.APIKonten;
-import com.plbtw_team.restopedia.Model.APIUserData;
+import com.restopedia_team.restopedia_app.Helper.ToStringConverter;
+import com.restopedia_team.restopedia_app.Model.APIBaseResponse;
+import com.restopedia_team.restopedia_app.Model.APIKonten;
+import com.restopedia_team.restopedia_app.Model.APIUserData;
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Response;

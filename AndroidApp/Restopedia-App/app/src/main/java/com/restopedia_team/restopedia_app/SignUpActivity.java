@@ -15,27 +15,27 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SignUpActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
 
-    @Bind(R.id.input_name)
+    @BindView(R.id.input_name)
     EditText _nameText;
-    @Bind(R.id.input_address)
+    @BindView(R.id.input_address)
     EditText _addressText;
-    @Bind(R.id.input_email)
+    @BindView(R.id.input_email)
     EditText _emailText;
-    @Bind(R.id.input_mobile)
+    @BindView(R.id.input_mobile)
     EditText _mobileText;
-    @Bind(R.id.input_password)
+    @BindView(R.id.input_password)
     EditText _passwordText;
-    @Bind(R.id.input_reEnterPassword)
+    @BindView(R.id.input_reEnterPassword)
     EditText _reEnterPasswordText;
-    @Bind(R.id.btn_signup)
+    @BindView(R.id.btn_signup)
     Button _signupButton;
-    @Bind(R.id.link_login)
+    @BindView(R.id.link_login)
     TextView _loginLink;
 
     @Override

@@ -5,4 +5,8 @@
     <string name="pick_image">Pick image</string>
     <string name="take_photo">Take photo</string>
     <string name="pick_file">Pick File</string>
+    <string name="title_activity_fragment_camera">FragmentCamera</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

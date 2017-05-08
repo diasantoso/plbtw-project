@@ -16,16 +16,17 @@ import com.restopedia_team.restopedia_app.R;
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
     private static final String TAG = "CustomAdapter";
 
-    private String[] mDataSet,mDataSet2;
-    private int[] mDataSet3,mDataSet4;
+    private String[] mDataSet, mDataSet2;
+    private int[] mDataSet3, mDataSet4;
 
     // BEGIN_INCLUDE(recyclerViewSampleViewHolder)
+
     /**
      * Provide a reference to the type of views that you are using (custom ViewHolder)
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView textView,textView2;
-        private final ImageView icon1,icon2;
+        private final TextView textView, textView2;
+        private final ImageView icon1, icon2;
 
         public ViewHolder(View v) {
             super(v);
@@ -45,12 +46,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         public TextView getTextView() {
             return textView;
         }
+
         public TextView getTextView2() {
             return textView2;
         }
+
         public ImageView getImageView() {
             return icon1;
         }
+
         public ImageView getImageView2() {
             return icon1;
         }
@@ -62,7 +66,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
      *
      * @param dataSet String[] containing the data to populate views to be used by RecyclerView.
      */
-    public CustomAdapter(String[] dataSet,String[] dataSet2, int[] dataSet3, int[] dataSet4) {
+    public CustomAdapter(String[] dataSet, String[] dataSet2, int[] dataSet3, int[] dataSet4) {
         this.mDataSet = dataSet;
         this.mDataSet2 = dataSet2;
         this.mDataSet3 = dataSet3;

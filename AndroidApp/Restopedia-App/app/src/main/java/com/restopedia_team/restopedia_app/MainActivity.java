@@ -14,13 +14,14 @@ import com.restopedia_team.restopedia_app.Helper.TextDrawable;
 public class MainActivity extends TabActivity {
 
     TabHost TabHostWindow;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         //Assign id to Tabhost.
-        TabHostWindow = (TabHost)findViewById(android.R.id.tabhost);
+        TabHostWindow = (TabHost) findViewById(android.R.id.tabhost);
 
         //Creating tab menu.
         TabSpec TabMenu1 = TabHostWindow.newTabSpec("Home");
@@ -35,11 +36,11 @@ public class MainActivity extends TabActivity {
         draw_icon1.setTypeface(FontAwesomeManager.getTypeface(this, FontAwesomeManager.FONTAWESOME));
         draw_icon1.setText(getResources().getText(R.string.home));
 
-        TabMenu1.setIndicator("",draw_icon1);
+        TabMenu1.setIndicator("", draw_icon1);
 
 
         //Set tab 1 activity to tab 1 menu.
-        TabMenu1.setContent(new Intent(this,TabActivity_1.class));
+        TabMenu1.setContent(new Intent(this, TabActivity_1.class));
 
         //Setting up tab 2 name.
         TextDrawable draw_icon2 = new TextDrawable(this);
@@ -47,9 +48,9 @@ public class MainActivity extends TabActivity {
         draw_icon2.setTextAlign(Layout.Alignment.ALIGN_CENTER);
         draw_icon2.setTypeface(FontAwesomeManager.getTypeface(this, FontAwesomeManager.FONTAWESOME));
         draw_icon2.setText(getResources().getText(R.string.upload));
-        TabMenu2.setIndicator("",draw_icon2);
+        TabMenu2.setIndicator("", draw_icon2);
         //Set tab 3 activity to tab 1 menu.
-        TabMenu2.setContent(new Intent(this,TabActivity_2.class));
+        TabMenu2.setContent(new Intent(this, TabActivity_2.class));
 
         //Setting up tab 3 name.
         TextDrawable draw_icon3 = new TextDrawable(this);
@@ -57,9 +58,9 @@ public class MainActivity extends TabActivity {
         draw_icon3.setTextAlign(Layout.Alignment.ALIGN_CENTER);
         draw_icon3.setTypeface(FontAwesomeManager.getTypeface(this, FontAwesomeManager.FONTAWESOME));
         draw_icon3.setText(getResources().getText(R.string.gallery));
-        TabMenu3.setIndicator("",draw_icon3);
+        TabMenu3.setIndicator("", draw_icon3);
         //Set tab 3 activity to tab 3 menu.
-        TabMenu3.setContent(new Intent(this,TabActivity_3.class));
+        TabMenu3.setContent(new Intent(this, TabActivity_3.class));
 
         //Setting up tab 4 name.
         TextDrawable draw_icon4 = new TextDrawable(this);
@@ -67,9 +68,9 @@ public class MainActivity extends TabActivity {
         draw_icon4.setTextAlign(Layout.Alignment.ALIGN_CENTER);
         draw_icon4.setTypeface(FontAwesomeManager.getTypeface(this, FontAwesomeManager.FONTAWESOME));
         draw_icon4.setText(getResources().getText(R.string.profile));
-        TabMenu4.setIndicator("",draw_icon4);
+        TabMenu4.setIndicator("", draw_icon4);
         //Set tab 4 activity to tab 4 menu.
-        TabMenu4.setContent(new Intent(this,TabActivity_4.class));
+        TabMenu4.setContent(new Intent(this, TabActivity_4.class));
 
         //Adding tab1, tab2, tab3 to tabhost view.
 
@@ -78,5 +79,4 @@ public class MainActivity extends TabActivity {
         TabHostWindow.addTab(TabMenu3);
         TabHostWindow.addTab(TabMenu4);
     }
-
 }

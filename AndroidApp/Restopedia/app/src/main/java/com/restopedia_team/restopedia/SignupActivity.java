@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.restopedia_team.restopedia.API.ApiClient;
 import com.restopedia_team.restopedia.API.ApiInterface;
@@ -22,14 +23,21 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SignupActivity extends AppCompatActivity {
-
     private static final String TAG = "SignupActivity";
 
-    @Bind(R.id.input_username) EditText _usernameText;
-    @Bind(R.id.input_password) EditText _passwordText;
-    @Bind(R.id.input_reEnterPassword) EditText _reEnterPasswordText;
-    @Bind(R.id.btn_signup) Button _signupButton;
-    @Bind(R.id.link_login) TextView _loginLink;
+    UserRegister userRegister;
+    String API_KEY = "7cBXDawjrOECIlpMmz8n19";
+
+    @Bind(R.id.input_username)
+    EditText _usernameText;
+    @Bind(R.id.input_password)
+    EditText _passwordText;
+    @Bind(R.id.input_reEnterPassword)
+    EditText _reEnterPasswordText;
+    @Bind(R.id.btn_signup)
+    Button _signupButton;
+    @Bind(R.id.link_login)
+    TextView _loginLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +57,7 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Finish the registration screen and return to the Login activity
-                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
                 finish();
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
@@ -80,15 +88,23 @@ public class SignupActivity extends AppCompatActivity {
         // TODO: Implement your own signup logic here.
 
         progressDialog.dismiss();
+
+        userRegister(username, password);
     }
 
     public void onSignupSuccess() {
         _signupButton.setEnabled(true);
         setResult(RESULT_OK, null);
+        Toast.makeText(getBaseContext(), "Sign Up Success", Toast.LENGTH_LONG).show();
+
+        Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(i);
     }
 
     public void onSignupFailed() {
         _signupButton.setEnabled(true);
+
+        Toast.makeText(getBaseContext(), "Sign Up Failed", Toast.LENGTH_LONG).show();
     }
 
     public boolean validate() {
@@ -114,23 +130,22 @@ public class SignupActivity extends AppCompatActivity {
         return valid;
     }
 
-//    void userLogin(String username, String password)
-//    {
-//        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-//        Call<UserRegister> call = apiService.login(username, password, API_KEY);
-//        call.enqueue(new Callback<UserRegister>() {
-//            @Override
-//            public void onResponse(Call<UserRegister> call, Response<UserRegister> response) {
-//                userLogin = response.body();
-//                Log.i("Success","Login Success");
-//                onLoginSuccess();
-//            }
-//
-//            @Override
-//            public void onFailure(Call<UserRegister> call, Throwable t) {
-//                Log.i("Failed","Login Failed");
-//                onLoginFailed();
-//            }
-//        });
-//    }
+    void userRegister(String username, String password) {
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<UserRegister> call = apiService.signUp(username, password, API_KEY);
+        call.enqueue(new Callback<UserRegister>() {
+            @Override
+            public void onResponse(Call<UserRegister> call, Response<UserRegister> response) {
+                userRegister = response.body();
+                Log.i("Success", "Sign Up Success");
+                onSignupSuccess();
+            }
+
+            @Override
+            public void onFailure(Call<UserRegister> call, Throwable t) {
+                Log.i("Failed", "Sign Up Failed");
+                onSignupFailed();
+            }
+        });
+    }
 }

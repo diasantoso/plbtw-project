@@ -4,6 +4,7 @@ package com.restopedia_team.restopedia.API;
 import com.restopedia_team.restopedia.Model.UserInfo;
 import com.restopedia_team.restopedia.Model.UserKonten;
 import com.restopedia_team.restopedia.Model.UserLogin;
+import com.restopedia_team.restopedia.Model.UserRegister;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -17,8 +18,9 @@ import retrofit2.http.Query;
  */
 
 public interface ApiInterface {
-//    @POST("signUp")
-//    Call<APIBaseResponse> signUp(@Query("username") String username, @Query("password") String password, @Query("api_key") String api_key);
+    @FormUrlEncoded
+    @POST("signUp")
+    Call<UserRegister> signUp(@Field("username") String username, @Field("password") String password, @Field("api_key") String api_key);
 
     @FormUrlEncoded
     @POST("login")

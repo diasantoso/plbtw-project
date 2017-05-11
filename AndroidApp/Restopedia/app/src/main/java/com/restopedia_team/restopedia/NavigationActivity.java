@@ -13,12 +13,17 @@ import com.restopedia_team.restopedia.Helper.TextDrawable;
 
 public class NavigationActivity extends TabActivity {
 
+
+
     TabHost TabHostWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
+
+        Bundle b = getIntent().getExtras();
+        String USERNAME = b.getString("username");
 
         //Assign id to Tabhost.
         TabHostWindow = (TabHost) findViewById(android.R.id.tabhost);
@@ -38,7 +43,11 @@ public class NavigationActivity extends TabActivity {
         draw_icon1.setText(getResources().getText(R.string.home));
         TabMenu1.setIndicator("", draw_icon1);
         //Set tab 1 activity to tab 1 menu.
-        TabMenu1.setContent(new Intent(this, TabActivity1.class));
+        Intent i = new Intent(this, TabActivity1.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("username", USERNAME);
+        i.putExtras(bundle);
+        TabMenu1.setContent(i);
 
 
         //Setting up tab 2 name.

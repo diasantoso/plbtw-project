@@ -10,8 +10,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.restopedia_team.restopedia.API.ApiClient;
+import com.restopedia_team.restopedia.API.ApiInterface;
+import com.restopedia_team.restopedia.Model.UserLogin;
+import com.restopedia_team.restopedia.Model.UserRegister;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -105,4 +113,24 @@ public class SignupActivity extends AppCompatActivity {
 
         return valid;
     }
+
+//    void userLogin(String username, String password)
+//    {
+//        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+//        Call<UserRegister> call = apiService.login(username, password, API_KEY);
+//        call.enqueue(new Callback<UserRegister>() {
+//            @Override
+//            public void onResponse(Call<UserRegister> call, Response<UserRegister> response) {
+//                userLogin = response.body();
+//                Log.i("Success","Login Success");
+//                onLoginSuccess();
+//            }
+//
+//            @Override
+//            public void onFailure(Call<UserRegister> call, Throwable t) {
+//                Log.i("Failed","Login Failed");
+//                onLoginFailed();
+//            }
+//        });
+//    }
 }

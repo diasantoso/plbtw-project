@@ -11,18 +11,32 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.restopedia_team.restopedia.API.ApiClient;
+import com.restopedia_team.restopedia.API.ApiInterface;
+import com.restopedia_team.restopedia.Model.UserLogin;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
 
-    @Bind(R.id.input_username) EditText _usernameText;
-    @Bind(R.id.input_password) EditText _passwordText;
-    @Bind(R.id.btn_login) Button _loginButton;
-    @Bind(R.id.link_signup) TextView _signupLink;
+    String API_KEY = "7cBXDawjrOECIlpMmz8n19";
+    UserLogin userLogin;
+
+    @Bind(R.id.input_username)
+    EditText _usernameText;
+    @Bind(R.id.input_password)
+    EditText _passwordText;
+    @Bind(R.id.btn_login)
+    Button _loginButton;
+    @Bind(R.id.link_signup)
+    TextView _signupLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,11 +82,10 @@ public class LoginActivity extends AppCompatActivity {
 
         // TODO: Implement your own authentication logic here.
 
+
         //ini nanti code login ditaruh sini
         progressDialog.dismiss();
-
-        Intent i = new Intent(getApplicationContext(), NavigationActivity.class);
-        startActivity(i);
+        userLogin(username, password);
     }
 
 
@@ -94,14 +107,39 @@ public class LoginActivity extends AppCompatActivity {
         moveTaskToBack(true);
     }
 
-    public void onLoginSuccess() {
+    public void onLoginSuccess(String username) {
         _loginButton.setEnabled(true);
-        finish();
+
+        Intent i = new Intent(getApplicationContext(), NavigationActivity.class);
+        Bundle b = new Bundle();
+        b.putString("username", username);
+        i.putExtras(b);
+        startActivity(i);
     }
 
     public void onLoginFailed() {
         Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
 
         _loginButton.setEnabled(true);
+    }
+
+    void userLogin(String username, String password)
+    {
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<UserLogin> call = apiService.login(username, password, API_KEY);
+        call.enqueue(new Callback<UserLogin>() {
+            @Override
+            public void onResponse(Call<UserLogin> call, Response<UserLogin> response) {
+                userLogin = response.body(); //data login-------------------------------------------
+                Log.i("Success","Login Success");
+                onLoginSuccess(userLogin.getUserData().get(0).getUsername());
+            }
+
+            @Override
+            public void onFailure(Call<UserLogin> call, Throwable t) {
+                Log.i("Failed","Login Failed");
+                onLoginFailed();
+            }
+        });
     }
 }

@@ -113,6 +113,7 @@ public class LoginActivity extends AppCompatActivity {
         Intent i = new Intent(getApplicationContext(), NavigationActivity.class);
         Bundle b = new Bundle();
         b.putString("username", username);
+        b.putString("api_key", API_KEY);
         i.putExtras(b);
         startActivity(i);
     }

@@ -4,7 +4,7 @@ package com.restopedia_team.restopedia.API;
 import com.restopedia_team.restopedia.Model.UserInfo;
 import com.restopedia_team.restopedia.Model.UserKonten;
 import com.restopedia_team.restopedia.Model.UserLogin;
-import com.restopedia_team.restopedia.Model.UserRegister;
+import com.restopedia_team.restopedia.Model.StatusMessage;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -19,15 +19,17 @@ import retrofit2.http.Query;
 
 public interface ApiInterface {
     @FormUrlEncoded
-    @POST("signUp")
-    Call<UserRegister> signUp(@Field("username") String username, @Field("password") String password, @Field("api_key") String api_key);
-
-    @FormUrlEncoded
     @POST("login")
     Call<UserLogin> login(@Field("username") String username, @Field("password") String password, @Field("api_key") String api_key);
 
-//    @POST("addKonten")
-//    Call<APIBaseResponse> addKonten(@Query("api_key") String api_key, @Query("username") String username, @Query("nama") String nama, @Query("detail") String detail, @Query("alamat") String alamat, @Query("kota") String kota, @Query("gambar") String gambar, @Query("namagambar") String namagambar);
+
+    @FormUrlEncoded
+    @POST("signUp")
+    Call<StatusMessage> signUp(@Field("username") String username, @Field("password") String password, @Field("api_key") String api_key);
+
+    @FormUrlEncoded
+    @POST("addKonten")
+    Call<StatusMessage> addKonten(@Field("api_key") String api_key, @Field("username") String username, @Field("nama") String nama, @Field("detail") String detail, @Field("alamat") String alamat, @Field("kota") String kota, @Field("gambar") String gambar, @Field("namagambar") String namagambar);
 
     @GET("getUserInfo")
     Call<UserInfo> getUserInfo(@Query("username") String username, @Query("api_key") String api_key);

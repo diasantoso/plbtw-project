@@ -13,8 +13,7 @@ import android.widget.Toast;
 
 import com.restopedia_team.restopedia.API.ApiClient;
 import com.restopedia_team.restopedia.API.ApiInterface;
-import com.restopedia_team.restopedia.Model.UserLogin;
-import com.restopedia_team.restopedia.Model.UserRegister;
+import com.restopedia_team.restopedia.Model.StatusMessage;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -25,7 +24,7 @@ import retrofit2.Response;
 public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
 
-    UserRegister userRegister;
+    StatusMessage statusMessage;
     String API_KEY = "7cBXDawjrOECIlpMmz8n19";
 
     @Bind(R.id.input_username)
@@ -132,17 +131,17 @@ public class SignupActivity extends AppCompatActivity {
 
     void userRegister(String username, String password) {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<UserRegister> call = apiService.signUp(username, password, API_KEY);
-        call.enqueue(new Callback<UserRegister>() {
+        Call<StatusMessage> call = apiService.signUp(username, password, API_KEY);
+        call.enqueue(new Callback<StatusMessage>() {
             @Override
-            public void onResponse(Call<UserRegister> call, Response<UserRegister> response) {
-                userRegister = response.body();
+            public void onResponse(Call<StatusMessage> call, Response<StatusMessage> response) {
+                statusMessage = response.body();
                 Log.i("Success", "Sign Up Success");
                 onSignupSuccess();
             }
 
             @Override
-            public void onFailure(Call<UserRegister> call, Throwable t) {
+            public void onFailure(Call<StatusMessage> call, Throwable t) {
                 Log.i("Failed", "Sign Up Failed");
                 onSignupFailed();
             }

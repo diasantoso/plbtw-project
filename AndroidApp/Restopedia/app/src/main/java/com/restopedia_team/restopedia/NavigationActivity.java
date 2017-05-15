@@ -13,7 +13,8 @@ import com.restopedia_team.restopedia.Helper.TextDrawable;
 
 public class NavigationActivity extends TabActivity {
 
-
+    String USERNAME;
+    String API_KEY;
 
     TabHost TabHostWindow;
 
@@ -23,7 +24,8 @@ public class NavigationActivity extends TabActivity {
         setContentView(R.layout.activity_navigation);
 
         Bundle b = getIntent().getExtras();
-        String USERNAME = b.getString("username");
+        USERNAME = b.getString("username");
+        API_KEY = b.getString("api_key");
 
         //Assign id to Tabhost.
         TabHostWindow = (TabHost) findViewById(android.R.id.tabhost);
@@ -46,6 +48,7 @@ public class NavigationActivity extends TabActivity {
         Intent i = new Intent(this, TabActivity1.class);
         Bundle bundle = new Bundle();
         bundle.putString("username", USERNAME);
+        bundle.putString("api_key", API_KEY);
         i.putExtras(bundle);
         TabMenu1.setContent(i);
 
@@ -58,7 +61,12 @@ public class NavigationActivity extends TabActivity {
         draw_icon2.setText(getResources().getText(R.string.upload));
         TabMenu2.setIndicator("", draw_icon2);
         //Set tab 3 activity to tab 1 menu.
-        TabMenu2.setContent(new Intent(this, TabActivity2.class));
+        Intent i2 = new Intent(this, TabActivity2.class);
+        Bundle bundle2 = new Bundle();
+        bundle2.putString("username", USERNAME);
+        bundle2.putString("api_key", API_KEY);
+        i2.putExtras(bundle2);
+        TabMenu2.setContent(i2);
 
 
         //Setting up tab 3 name.
@@ -69,7 +77,12 @@ public class NavigationActivity extends TabActivity {
         draw_icon3.setText(getResources().getText(R.string.gallery));
         TabMenu3.setIndicator("", draw_icon3);
         //Set tab 3 activity to tab 3 menu.
-        TabMenu3.setContent(new Intent(this, TabActivity3.class));
+        Intent i3 = new Intent(this, TabActivity3.class);
+        Bundle bundle3 = new Bundle();
+        bundle3.putString("username", USERNAME);
+        bundle3.putString("api_key", API_KEY);
+        i3.putExtras(bundle3);
+        TabMenu3.setContent(i3);
 
 
         //Setting up tab 4 name.
@@ -80,7 +93,12 @@ public class NavigationActivity extends TabActivity {
         draw_icon4.setText(getResources().getText(R.string.profile));
         TabMenu4.setIndicator("", draw_icon4);
         //Set tab 4 activity to tab 4 menu.
-        TabMenu4.setContent(new Intent(this, TabActivity4.class));
+        Intent i4 = new Intent(this, TabActivity4.class);
+        Bundle bundle4 = new Bundle();
+        bundle4.putString("username", USERNAME);
+        bundle4.putString("api_key", API_KEY);
+        i4.putExtras(bundle4);
+        TabMenu4.setContent(i4);
 
 
         TabHostWindow.addTab(TabMenu1);

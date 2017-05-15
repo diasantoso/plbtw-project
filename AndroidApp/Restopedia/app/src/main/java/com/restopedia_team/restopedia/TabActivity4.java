@@ -15,8 +15,8 @@ import retrofit2.Response;
 
 public class TabActivity4 extends Activity {
 
-    String USERNAME = "eric";
-    String API_KEY = "7cBXDawjrOECIlpMmz8n19";
+    String USERNAME;
+    String API_KEY;
     UserInfo userInfo;
 
     TextView textView;
@@ -25,6 +25,10 @@ public class TabActivity4 extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab4);
+
+        Bundle b = getIntent().getExtras();
+        USERNAME = b.getString("username");
+        API_KEY = b.getString("api_key");
 
         textView = (TextView) findViewById(R.id.testab4);
 

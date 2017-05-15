@@ -8,21 +8,42 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.IdRes;
+import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.restopedia_team.restopedia.API.ApiClient;
+import com.restopedia_team.restopedia.API.ApiInterface;
+import com.restopedia_team.restopedia.Model.StatusMessage;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TabActivity2 extends Activity {
+
+    String USERNAME;
+    String API_KEY;
+    StatusMessage statusMessage;
 
     Bitmap bi = null;
     boolean isColored;
@@ -44,27 +65,50 @@ public class TabActivity2 extends Activity {
 
     float offset = 1;
 
+    EditText text_nama;
+    EditText text_detail;
+    EditText text_alamat;
+    EditText text_kota;
+    Button btn_upload;
+
+    String nama = "";
+    String detail = "";
+    String alamat = "";
+    String kota = "";
+
+    String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab2);
 
+        Bundle b = getIntent().getExtras();
+        USERNAME = b.getString("username");
+        API_KEY = b.getString("api_key");
+
+        text_nama = (EditText) findViewById(R.id.name);
+        text_detail = (EditText) findViewById(R.id.detail);
+        text_alamat = (EditText) findViewById(R.id.alamat);
+        text_kota = (EditText) findViewById(R.id.kota);
+        btn_upload = (Button) findViewById(R.id.upload);
+
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
-        if(metrics.densityDpi== DisplayMetrics.DENSITY_LOW)
+        if (metrics.densityDpi == DisplayMetrics.DENSITY_LOW)
             offset = 0.75f;
-        else if(metrics.densityDpi== DisplayMetrics.DENSITY_MEDIUM)
+        else if (metrics.densityDpi == DisplayMetrics.DENSITY_MEDIUM)
             offset = 1f;
-        else if(metrics.densityDpi== DisplayMetrics.DENSITY_TV)
+        else if (metrics.densityDpi == DisplayMetrics.DENSITY_TV)
             offset = 1.33f;
-        else if(metrics.densityDpi== DisplayMetrics.DENSITY_HIGH)
+        else if (metrics.densityDpi == DisplayMetrics.DENSITY_HIGH)
             offset = 1.5f;
-        else if(metrics.densityDpi== DisplayMetrics.DENSITY_XHIGH)
+        else if (metrics.densityDpi == DisplayMetrics.DENSITY_XHIGH)
             offset = 2f;
 
-        Log.e("NIRAV",""+offset);
+        Log.e("NIRAV", "" + offset);
 
         colourBins = new int[NUMBER_OF_COLOURS][];
         for (int i = 0; i < NUMBER_OF_COLOURS; i++) {
@@ -101,23 +145,29 @@ public class TabActivity2 extends Activity {
                 File file = getFile();
                 cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
                 startActivityForResult(cameraIntent, 102);
-                flag=true;
+                flag = true;
+            }
+        });
+
+        //klik upload
+        btn_upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                klik_upload();
             }
         });
 
     }
 
-    private File getFile()
-    {
+    private File getFile() {
         File folder = new File("sdcard/camera_app");
-        if(!folder.exists())
-        {
+        if (!folder.exists()) {
             folder.mkdir();
         }
-        return new File(folder,"cam_image.jpg");
+        return new File(folder, "cam_image.jpg");
     }
 
-    protected void onActivityResult(int requestCode, int resultCode,Intent imageReturnedIntent) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
         super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
         switch (requestCode) {
 
@@ -142,7 +192,7 @@ public class TabActivity2 extends Activity {
                 }
 
             case 102:
-                String path="sdcard/camera_app/cam_image.jpg";
+                String path = "sdcard/camera_app/cam_image.jpg";
                 img.setImageDrawable(Drawable.createFromPath(path));
         }
     }
@@ -152,14 +202,14 @@ public class TabActivity2 extends Activity {
 
         try {
             if (contentUri.toString().contains("video")) {
-                String[] proj = { MediaStore.Video.Media.DATA };
+                String[] proj = {MediaStore.Video.Media.DATA};
                 Cursor cursor = managedQuery(contentUri, proj, null, null, null);
                 int column_index = cursor
                         .getColumnIndexOrThrow(MediaStore.Video.Media.DATA);
                 cursor.moveToFirst();
                 return cursor.getString(column_index);
             } else {
-                String[] proj = { MediaStore.Images.Media.DATA };
+                String[] proj = {MediaStore.Images.Media.DATA};
                 Cursor cursor = managedQuery(contentUri, proj, null, null, null);
                 int column_index = cursor
                         .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
@@ -173,8 +223,7 @@ public class TabActivity2 extends Activity {
         return null;
     }
 
-    class MyAsync extends AsyncTask
-    {
+    class MyAsync extends AsyncTask {
         @Override
         protected void onPreExecute() {
             // TODO Auto-generated method stub
@@ -252,5 +301,61 @@ public class TabActivity2 extends Activity {
         dataLoadProgress.setCancelable(false);
         dataLoadProgress.setProgressStyle(android.R.attr.progressBarStyleLarge);
         return dataLoadProgress;
+    }
+
+    //post gambar
+
+    @Override
+    public View findViewById(@IdRes int id) {
+        return super.findViewById(id);
+    }
+
+    void userUpload(String gambar, String namagambar) {
+        nama = text_nama.getText().toString();
+        detail = text_detail.getText().toString();
+        alamat = text_alamat.getText().toString();
+        kota = text_kota.getText().toString();
+
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<StatusMessage> call = apiService.addKonten(API_KEY, USERNAME, nama, detail, alamat, kota, gambar, namagambar);
+        call.enqueue(new Callback<StatusMessage>() {
+            @Override
+            public void onResponse(Call<StatusMessage> call, Response<StatusMessage> response) {
+                statusMessage = response.body();
+                Log.i("Success", "Upload Success");
+                onUploadSuccess();
+            }
+
+            @Override
+            public void onFailure(Call<StatusMessage> call, Throwable t) {
+                Log.i("Failed", "Upload Failed");
+                onUploadFailed();
+            }
+        });
+    }
+
+    public void onUploadSuccess() {
+        btn_upload.setEnabled(true);
+        setResult(RESULT_OK, null);
+        Toast.makeText(getBaseContext(), "Upload Success", Toast.LENGTH_LONG).show();
+
+        Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(i);
+    }
+
+    public void onUploadFailed() {
+        btn_upload.setEnabled(true);
+
+        Toast.makeText(getBaseContext(), "Upload Failed", Toast.LENGTH_LONG).show();
+    }
+
+    void klik_upload() {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        ((BitmapDrawable) img.getDrawable()).getBitmap().compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream);
+        String gambar = Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
+
+        String namagambar = "user_" + USERNAME + "_konten_" + timeStamp + ".jpg";
+
+        userUpload(gambar, namagambar);
     }
 }

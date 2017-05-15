@@ -4,7 +4,7 @@ package com.restopedia_team.restopedia.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class UserRegister {
+public class StatusMessage {
 
     @SerializedName("status")
     @Expose

@@ -131,7 +131,7 @@
                <h2>Spesification</h2>
                <p class="subtitile">After registering, each user will be given a unique API Key as the password used to get data from API Restopedia. <br><br>
                     Put the key into URL to get the data :<br>
-                <a href="restopedia.azurewebsites.net/restopedia-rest/index.php/API/restopedia/konten?api_key=YOUR_API_KEY">restopedia.azurewebsites.net/restopedia-rest/index.php/API/restopedia/konten?api_key=YOUR_API_KEY</a>
+                <a href="http://restopedia.890m.com/restopedia-rest/index.php/API/restopedia/METHOD_NAME?api_key=YOUR_API_KEY">http://restopedia.890m.com/restopedia-rest/index.php/API/restopedia/METHOD_NAME?api_key=YOUR_API_KEY</a>
                </p>
             </div>
          </div>

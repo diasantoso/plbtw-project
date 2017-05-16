@@ -1,0 +1,31 @@
+List API :
+=========================================
+api_key = tLRJEVQGkZNpmB7sxq3218
+=========================================
+http://restopedia.890m.com/restopedia-rest/index.php/API/restopedia/signUp
+Tipe : POST
+Parameter : username, password, api_key
+
+http://restopedia.890m.com/restopedia-rest/index.php/API/restopedia/login
+Tipe : POST
+Parameter : username, password, api_key
+
+http://restopedia.890m.com/restopedia-rest/index.php/API/restopedia/addKonten
+Tipe : POST
+Parameter : api_key, username, nama, detail, alamat, kota, gambar, namagambar
+
+http://restopedia.890m.com/restopedia-rest/index.php/API/restopedia/getAllKonten
+Tipe : GET
+Parameter : api_key
+
+http://restopedia.890m.com/restopedia-rest/index.php/API/restopedia/getMyKonten
+Tipe : GET
+Parameter : username, api_key
+
+http://restopedia.890m.com/restopedia-rest/index.php/API/restopedia/delKonten
+Tipe : POST
+Parameter : api_key, id_resto
+
+http://restopedia.890m.com/restopedia-rest/index.php/API/restopedia/deleteKonten
+Tipe : DELETE
+Parameter : api_key, id_resto

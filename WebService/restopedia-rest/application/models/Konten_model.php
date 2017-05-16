@@ -25,7 +25,13 @@ class Konten_model extends CI_Model{
 		$this->db->insert('konten_resto',$konten);
 	}
 
-	function GetKonten($LoggedUsername)
+	function DeleteKonten($id_resto)
+	{
+		$this->db->where('id_resto', $id_resto);
+		$this->db->delete('konten_resto');
+	}
+
+	function GetKonten()
 	{
 		$this->db->select();
 		$this->db->from('konten_resto')->order_by('Created_at', 'DESC');
@@ -36,9 +42,30 @@ class Konten_model extends CI_Model{
 
 		foreach($query->result() as $row) {
 
-			$this->db->select('flag')->where('Username', $LoggedUsername)->where('ID_Resto', $row->ID_Resto);
-			$this->db->from('user_likes');
-			$flagquery = $this->db->get();
+			$result[] = array(
+			'ID_Resto' => $row->ID_Resto,
+			'Username' => $row->Username,
+			'Nama_Resto' => $row->Nama_Resto,
+			'Detail_Resto' => $row->Detail_Resto,
+			'Alamat' => $row->Alamat,
+			'Kota' => $row->Kota,
+			'Gambar' => $row->Gambar,
+			'Created_at' => $row->Created_at
+			);
+		}
+		return $result;
+	}
+
+	function GetMyKonten($LoggedUsername)
+	{
+		$this->db->select();
+		$this->db->from('konten_resto')->where('Username', $LoggedUsername)->order_by('Created_at', 'DESC');
+
+		$query = $this->db->get();
+
+		$result =array();
+
+		foreach($query->result() as $row) {
 
 			$result[] = array(
 			'ID_Resto' => $row->ID_Resto,
@@ -48,90 +75,9 @@ class Konten_model extends CI_Model{
 			'Alamat' => $row->Alamat,
 			'Kota' => $row->Kota,
 			'Gambar' => $row->Gambar,
-			'Jumlah_Likes' => $this->db->where('flag', "2")->where('ID_Resto', $row->ID_Resto)->from('user_likes')->count_all_results(),
-			'Created_at' => $row->Created_at,
-			'Flag'=> $flagquery->result()
+			'Created_at' => $row->Created_at
 			);
 		}
 		return $result;
 	}
-
-	function GetKontenHot($LoggedUsername)
-	{
-		$this->db->select();
-		$this->db->from('konten_resto')->order_by('Jumlah_Likes', 'DESC');
-
-		$query = $this->db->get();
-
-		$result =array();
-
-		foreach($query->result() as $row) {
-
-			$this->db->select('flag')->where('Username', $LoggedUsername)->where('ID_Resto', $row->ID_Resto);
-			$this->db->from('user_likes');
-			$flagquery = $this->db->get();
-
-			$result[] = array(
-			'ID_Resto' => $row->ID_Resto,
-			'Username' => $row->Username,
-			'Nama_Resto' => $row->Nama_Resto,
-			'Detail_Resto' => $row->Detail_Resto,
-			'Alamat' => $row->Alamat,
-			'Kota' => $row->Kota,
-			'Gambar' => $row->Gambar,
-			'Jumlah_Likes' => $this->db->where('flag', "2")->where('ID_Resto', $row->ID_Resto)->from('user_likes')->count_all_results(),
-			'Created_at' => $row->Created_at,
-			'Flag'=> $flagquery->result()
-			);
-		}
-		return $result;
-	}
-
-	function GetKontenPublic()
-	{
-		$this->db->select();
-		$this->db->from('konten_resto')->order_by('Jumlah_Likes', 'DESC');
-
-		$query = $this->db->get();
-
-		$result =array();
-
-		foreach($query->result() as $row) {
-
-			$result[] = array(
-			'Nama_Resto' => $row->Nama_Resto,
-			'Detail_Resto' => $row->Detail_Resto,
-			'Alamat' => $row->Alamat,
-			'Kota' => $row->Kota,
-			'Gambar' => $row->Gambar,
-			'Jumlah_Likes' => $this->db->where('flag', "2")->where('ID_Resto', $row->ID_Resto)->from('user_likes')->count_all_results(),
-			);
-		}
-		return $result;
-	}
-
-
-	function GetKontenPublicKota($kota)
-	{
-		$this->db->select();
-		$this->db->from('konten_resto')->like('Kota',$kota);
-
-		$query = $this->db->get();
-
-		$result =array();
-
-		foreach($query->result() as $row) {
-
-			$result[] = array(
-			'Nama_Resto' => $row->Nama_Resto,
-			'Detail_Resto' => $row->Detail_Resto,
-			'Alamat' => $row->Alamat,
-			'Kota' => $row->Kota,
-			'Gambar' => $row->Gambar,
-			'Jumlah_Likes' => $this->db->where('flag', "2")->where('ID_Resto', $row->ID_Resto)->from('user_likes')->count_all_results(),
-			);
-		}
-		return $result;
-	}
-
 }

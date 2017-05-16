@@ -29,7 +29,7 @@
             <div class="line">
                <div class="top-nav">
                   <div class="logo hide-l">
-                     <a href="../design/">RESTO<br /><strong>PEDIA</strong></a>
+                     <a href="<?php echo site_url('welcome/dasboard')?>">RESTO<br /><strong>PEDIA</strong></a>
                   </div>
                   <p class="nav-text">Options</p>
                   <div class="top-nav s-12 l-5">
@@ -60,7 +60,7 @@
          <div id="carousel">
             <div id="owl-demo" class="owl-carousel owl-theme">
                <div class="item">
-                  <img src="<?php echo base_url(); ?>/assets/img/resto4.jpg" alt="">
+                  <img src="<?php echo base_url(); ?>/assets/img/resto1.jpg" alt="">
                   <div class="carousel-text">
                      <div class="line">
                         <div class="s-12 l-9">
@@ -74,11 +74,11 @@
                   </div>
                </div>
                <div class="item">
-                  <img src="<?php echo base_url(); ?>/assets/img/resto5.jpg" alt="">
+                  <img src="<?php echo base_url(); ?>/assets/img/resto2.jpg" alt="">
                   <div class="carousel-text">
                      <div class="line">
                         <div class="s-12 l-9">
-                           <h2>With Us</h2>
+                           <h2>WIT<strong>H US</strong></h2>
                         </div>
                         <div class="s-12 l-9">
                            <p>Popularize Indonesian Culinary
@@ -88,11 +88,11 @@
                   </div>
                </div>
                <div class="item">
-                  <img src="<?php echo base_url(); ?>/assets/img/resto6.jpg" alt="">
+                  <img src="<?php echo base_url(); ?>/assets/img/resto3.jpg" alt="">
                   <div class="carousel-text">
                      <div class="line">
                         <div class="s-12 l-9">
-                           <h2>Indonesian Restaurant API</h2>
+                           <h2>INDONESIAN RES<strong>TAURANT API</strong></h2>
                         </div>
                         <div class="s-12 l-9">
                            <p>Sign Up Now
@@ -149,32 +149,73 @@
                <br>
                <h2>API Request</h2><br>
                <p class="subtitile">
-               To get all of the restaurant data in Indonesia :
+               To get all of the restaurant data in Indonesia : (GET)
                <br><br>
-               restopedia.azurewebsites.net/restopedia-rest/index.php/API/restopedia/konten
+               http://restopedia.890m.com/restopedia-rest/index.php/Restopedia/getAllKonten
                <br>
                ?api_key=<?php echo $this->session->userdata('api_key')?>
-               <br><br> ---------------------------------------------------------------------------------------------------------------------------------------------------------
-            </div>
-            <div class="line">
-               <h2>API Response</h2><br>
-               <p class="subtitile">This is example of JSON output from Restopedia API<br><br>
-                 {<br>
-                   "status": 200,<br>
-                   "message": "Berhasil"<br>
-                   "kontenData": [<br>
-                   {<br>
-                     "Nama_Resto": "RM Bundo Saliro",<br>
-                     "Detail_Resto": "Tempat makan khas Padang",<br>
-                     "Alamat": "Jalan Babarsari 100, Sleman",<br>
-                     "Kota": "Yogyakarta",<br>
-                     "Gambar": "",<br>
-                     "Jumlah_Likes": "4",<br>
-                   },<br>
-                   { ... }<br>
-                   ],<br>
-                 }
-              </p>
+               <br><br>
+               API RESPONSE
+               <br>
+                <center><img class="img-responsive" src="<?php echo base_url(); ?>/getAllKonten.jpg" alt=""></center>
+               <br>
+               <p class="subtitile">
+               To get restoran data by username in Indonesia : (GET)
+               <br><br>
+               http://restopedia.890m.com/restopedia-rest/index.php/Restopedia/getMyKonten
+               <br>
+               ?username="USERNAME"&api_key=<?php echo $this->session->userdata('api_key')?>
+               <br><br>
+               API RESPONSE
+               <br>
+                <center><img class="img-responsive" src="<?php echo base_url(); ?>/getMyKonten.jpg" alt=""></center>
+               <br>
+               <p class="subtitile">
+               To login : (POST)
+               <br><br>
+               http://restopedia.890m.com/restopedia-rest/index.php/Restopedia/login
+               <br>
+               Param Body : username, password and api_key
+               <br><br>
+               API RESPONSE
+               <br>
+                <center><img class="img-responsive" src="<?php echo base_url(); ?>/login.jpg" alt=""></center>
+               <br>
+               <p class="subtitile">
+               To sign up : (POST)
+               <br><br>
+               http://restopedia.890m.com/restopedia-rest/index.php/Restopedia/signup
+               <br>
+               Param Body : username, password and api_key
+               <br><br>
+               API RESPONSE
+               <br>
+                <center><img class="img-responsive" src="<?php echo base_url(); ?>/signup.jpg" alt=""></center>
+               <br>
+               <p class="subtitile">
+               To add konten : (POST)
+               <br><br>
+               http://restopedia.890m.com/restopedia-rest/index.php/Restopedia/addKonten
+               <br>
+               Param Body : api_key, username, nama, detail, alamat, kota, gambar and namagambar
+               <br><br>
+               API RESPONSE
+               <br>
+                <center><img class="img-responsive" src="<?php echo base_url(); ?>/addKonten.jpg" alt=""></center>
+               <br>
+               <p class="subtitile">
+               To delete konten : (DELETE)
+               <br><br>
+               http://restopedia.890m.com/restopedia-rest/index.php/Restopedia/deleteKonten
+               <br>
+               Param Body : api_key, id_resto
+               <br><br>
+               API RESPONSE
+               <br>
+                <center><img class="img-responsive" src="<?php echo base_url(); ?>/deleteKonten.jpg" alt=""></center>
+               <br>
+               <br> ---------------------------------------------------------------------------------------------------------------------------------------------------------
+
             </div>
       </section>
       <!-- FOOTER -->

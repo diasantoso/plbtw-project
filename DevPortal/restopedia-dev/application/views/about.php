@@ -29,18 +29,33 @@
             <div class="line">
                <div class="top-nav">
                   <div class="logo hide-l">
-                     <a href="../design/">RESTO<br /><strong>PEDIA</strong></a>
+                    <?php if($this->session->userdata('username')!="") {?>
+                      <a href="<?php echo site_url('welcome/dasboard')?>">RESTO<br/><strong>PEDIA</strong></a>
+                    <?php } ?>
+                    <?php if($this->session->userdata('username')=="") { ?>
+                      <a href="<?php echo site_url('welcome/dasboard')?>">RESTO<br/><strong>PEDIA</strong></a>
+                    <?php } ?>
                   </div>
                   <p class="nav-text">Options</p>
                   <div class="top-nav s-12 l-5">
                      <ul class="right top-ul chevron">
-                        <li><a href="<?php echo site_url('welcome/dasboard')?>">Home</a></li>
+                       <?php if($this->session->userdata('username')!="") {?>
+                         <li><a href="<?php echo site_url('welcome/dasboard')?>">Home</a></li>
+                       <?php } ?>
+                       <?php if($this->session->userdata('username')=="") { ?>
+                         <li><a href="<?php echo site_url('welcome/index')?>">Home</a></li>
+                       <?php } ?>
                         <li><a href="<?php echo site_url('welcome/about')?>">About</a></li>
                      </ul>
                   </div>
                   <ul class="s-12 l-2">
                      <li class="logo hide-s hide-m">
-                        <a href="<?php echo site_url('welcome/dasboard')?>">RESTO<br/><strong>PEDIA</strong></a>
+                        <?php if($this->session->userdata('username')!="") {?>
+                          <a href="<?php echo site_url('welcome/dasboard')?>">RESTO<br/><strong>PEDIA</strong></a>
+                        <?php } ?>
+                        <?php if($this->session->userdata('username')=="") { ?>
+                          <a href="<?php echo site_url('welcome/dasboard')?>">RESTO<br/><strong>PEDIA</strong></a>
+                        <?php } ?>
                      </li>
                   </ul>
                   <div class="top-nav s-12 l-5">
@@ -64,7 +79,7 @@
          <div id="carousel">
             <div id="owl-demo" class="owl-carousel owl-theme">
                <div class="item">
-                  <img src="<?php echo base_url(); ?>/assets/img/resto4.jpg" alt="">
+                  <img src="<?php echo base_url(); ?>/assets/img/resto1.jpg" alt="">
                   <div class="carousel-text">
                      <div class="line">
                         <div class="s-12 l-9">
@@ -79,7 +94,7 @@
                   </div>
                </div>
                <div class="item">
-                  <img src="<?php echo base_url(); ?>/assets/img/resto5.jpg" alt="">
+                  <img src="<?php echo base_url(); ?>/assets/img/resto2.jpg" alt="">
                   <div class="carousel-text">
                      <div class="line">
                         <div class="s-12 l-9">

@@ -28,7 +28,7 @@
             <div class="line">
                <div class="top-nav">
                   <div class="logo hide-l">
-                     <a href="../design/">RESTO<br /><strong>PEDIA</strong></a>
+                     <a href="<?php echo site_url('welcome/index')?>">RESTO<br /><strong>PEDIA</strong></a>
                   </div>
                   <p class="nav-text">Options</p>
                   <div class="top-nav s-12 l-5">
@@ -77,7 +77,7 @@
                   <div class="carousel-text">
                      <div class="line">
                         <div class="s-12 l-9">
-                           <h2>With Us</h2>
+                           <h2>WIT<strong>H US</strong></h2>
                         </div>
                         <div class="s-12 l-9">
                            <p>Popularize Indonesian Culinary
@@ -91,7 +91,7 @@
                   <div class="carousel-text">
                      <div class="line">
                         <div class="s-12 l-9">
-                           <h2>Indonesian Restaurant API</h2>
+                           <h2>INDONESIAN RES<strong>TAURANT API</strong></h2>
                         </div>
                         <div class="s-12 l-9">
                            <p>Sign Up Now

@@ -24,6 +24,9 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
 
+    //recyclerview
+    compile 'com.android.support:recyclerview-v7:23.4.+'
+
     //splash screen
     compile 'com.github.ViksaaSkool:AwesomeSplash:v1.0.0'
 

@@ -2,6 +2,8 @@ package com.restopedia_team.restopedia.API;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.Call;
+import retrofit2.http.GET;
 
 /**
  * Created by Erikku_Seiichiro on 08-May-17.

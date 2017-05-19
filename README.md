@@ -1,8 +1,6 @@
 # plbtw-project
 
-<img alt="Restopedia" height="300" src="https://drive.google.com/file/d/0B0hZ-xT9Uzw2WjU0X2ZVVXZwWHc/view?usp=sharing">
-
-<!--"https://github.com/diasantoso/plbtw-project/blob/master/AndroidApp/Restopedia/app/src/main/res/drawable/restopedia.png"-->
+<img alt="Restopedia" height="300" src="https://github.com/diasantoso/plbtw-project/blob/master/AndroidApp/Restopedia/app/src/main/res/drawable/restopedia.png">
 
 <h1>Restopedia</h1>
 

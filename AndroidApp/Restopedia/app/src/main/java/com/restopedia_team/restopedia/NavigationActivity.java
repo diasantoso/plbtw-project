@@ -34,7 +34,6 @@ public class NavigationActivity extends TabActivity {
         TabHost.TabSpec TabMenu1 = TabHostWindow.newTabSpec("Home");
         TabHost.TabSpec TabMenu2 = TabHostWindow.newTabSpec("Upload");
         TabHost.TabSpec TabMenu3 = TabHostWindow.newTabSpec("Gallery");
-        TabHost.TabSpec TabMenu4 = TabHostWindow.newTabSpec("Profile");
 
 
         //Setting up tab 1 name.
@@ -85,25 +84,8 @@ public class NavigationActivity extends TabActivity {
         TabMenu3.setContent(i3);
 
 
-        //Setting up tab 4 name.
-        TextDrawable draw_icon4 = new TextDrawable(this);
-        draw_icon4.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
-        draw_icon4.setTextAlign(Layout.Alignment.ALIGN_CENTER);
-        draw_icon4.setTypeface(FontAwesomeManager.getTypeface(this, FontAwesomeManager.FONTAWESOME));
-        draw_icon4.setText(getResources().getText(R.string.profile));
-        TabMenu4.setIndicator("", draw_icon4);
-        //Set tab 4 activity to tab 4 menu.
-        Intent i4 = new Intent(this, TabActivity4.class);
-        Bundle bundle4 = new Bundle();
-        bundle4.putString("username", USERNAME);
-        bundle4.putString("api_key", API_KEY);
-        i4.putExtras(bundle4);
-        TabMenu4.setContent(i4);
-
-
         TabHostWindow.addTab(TabMenu1);
         TabHostWindow.addTab(TabMenu2);
         TabHostWindow.addTab(TabMenu3);
-        TabHostWindow.addTab(TabMenu4);
     }
 }

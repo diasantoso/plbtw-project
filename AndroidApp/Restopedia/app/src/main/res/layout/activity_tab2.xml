@@ -8,75 +8,101 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.restopedia_team.restopedia.TabActivity2">
+
     <Button
         android:id="@+id/gallery"
         android:text="Gallery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
-
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:id="@+id/original_pic"
-        android:layout_below="@+id/gallery"
-        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
         android:text="Camera"
         android:id="@+id/camera"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/name"
-        android:hint="Nama"
-        android:layout_below="@+id/original_pic"
-        android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/detail" />
+        android:paddingTop="56dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:weightSum="1">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/detail"
-        android:layout_alignParentStart="true"
-        android:hint="Detail"
-        android:layout_below="@+id/name"
-        android:layout_toLeftOf="@+id/camera" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPostalAddress"
-        android:ems="10"
-        android:id="@+id/alamat"
-        android:layout_alignParentStart="true"
-        android:hint="Alamat"
-        android:layout_below="@+id/detail"
-        android:layout_toLeftOf="@+id/camera" />
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="164dp"
+            android:id="@+id/original_pic"
+            android:layout_below="@+id/gallery"
+            android:layout_centerHorizontal="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/kota"
-        android:layout_alignParentStart="true"
-        android:hint="Kota"
-        android:layout_below="@+id/alamat"
-        android:layout_toLeftOf="@+id/camera" />
+        <!--  Name Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:id="@+id/textInputLayout">
+            <EditText android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Name" />
+        </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Upload"
-        android:id="@+id/upload"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        <!--  Detail Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+            <EditText android:id="@+id/detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Detail" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!--  Address Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+            <EditText android:id="@+id/alamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Address" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!--  City Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+            android:layout_marginBottom="8dp">
+            <EditText android:id="@+id/kota"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="City" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/upload"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:text="Upload"
+            android:layout_alignBottom="@+id/textInputLayout"
+            android:layout_alignParentStart="true" />
+
+    </LinearLayout>
 
 </RelativeLayout>

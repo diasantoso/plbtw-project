@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.restopedia_team.restopedia.Model.KontenDatum;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
         holder.nResto.setText(item.get(position).getNamaResto());
         holder.dResto.setText(item.get(position).getDetailResto());
-
+        Picasso.with(holder.itemView.getContext()).load(item.get(position).getGambar()).into(holder.gResto);
     }
 
     @Override

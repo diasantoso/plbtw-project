@@ -2,6 +2,7 @@ package com.restopedia_team.restopedia;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -11,6 +12,7 @@ import android.widget.TextView;
 public class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     public TextView nResto, dResto;
+    public ImageView gResto;
 
     public RecyclerViewHolder(View itemView) {
         super(itemView);
@@ -19,6 +21,8 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.
 
         nResto = (TextView) itemView.findViewById(R.id.name);
         dResto = (TextView) itemView.findViewById(R.id.hobby);
+        gResto = (ImageView) itemView.findViewById(R.id.cover);
+
     }
 
     @Override

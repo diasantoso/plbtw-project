@@ -26,7 +26,6 @@ public class TabActivity1 extends AppCompatActivity {
     String API_KEY;
     UserKonten userKonten;
 
-    TextView textView;
     private LinearLayoutManager layoutManager;
 
 
@@ -39,48 +38,9 @@ public class TabActivity1 extends AppCompatActivity {
         USERNAME = b.getString("username");
         API_KEY = b.getString("api_key");
 
-        textView = (TextView) findViewById(R.id.testab1);
 
         getAllKonten();
-        //getRestoList();
-
-
     }
-
-    /*void getRestoList()
-    {
-        try {
-            ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-            Call<List<KontenDatum>> call = apiService.getAllKonten(USERNAME,API_KEY);
-
-            call.enqueue(new Callback<List<KontenDatum>>() {
-                @Override
-                public void onResponse(Call<List<KontenDatum>> call, Response<List<KontenDatum>> response) {
-                    //Log.d("onResponse", response.message());
-
-                    List<KontenDatum> userList = response.body();
-                    layoutManager = new LinearLayoutManager(TabActivity1.this);
-
-                    RecyclerView recyclerView = (RecyclerView)
-                            findViewById(R.id.recycler);
-                    recyclerView.setLayoutManager(layoutManager);
-
-                    RecyclerViewAdapter recyclerViewAdapter =
-                            new RecyclerViewAdapter(userList);
-
-                    recyclerView.setAdapter(recyclerViewAdapter);
-
-
-                }
-
-                @Override
-                public void onFailure(Call<List<KontenDatum>> call, Throwable t) {
-
-                }
-            });
-        }catch (Exception e) {}
-    }
-*/
 
     void getAllKonten()
     {
@@ -104,7 +64,6 @@ public class TabActivity1 extends AppCompatActivity {
                         new RecyclerViewAdapter(restoList);
 
                 recyclerView.setAdapter(recyclerViewAdapter);
-
             }
 
             @Override

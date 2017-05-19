@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.restopedia_team.restopedia.Model.KontenDatum;
 import com.squareup.picasso.Picasso;
+import com.yarolegovich.lovelydialog.LovelyStandardDialog;
 
 import java.util.List;
 
@@ -17,7 +18,6 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
 
     private List<KontenDatum> item;
-
 
     public RecyclerViewAdapter(List<KontenDatum> list) {
         this.item = list;
@@ -36,8 +36,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
         holder.nResto.setText(item.get(position).getNamaResto());
-        holder.dResto.setText(item.get(position).getDetailResto());
         Picasso.with(holder.itemView.getContext()).load(item.get(position).getGambar()).into(holder.gResto);
+        holder.nama = item.get(position).getNamaResto();
+        holder.detil = item.get(position).getDetailResto();
+        holder.alamat = item.get(position).getAlamat();
+        holder.kota = item.get(position).getKota();
     }
 
     @Override

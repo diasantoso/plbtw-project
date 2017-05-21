@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.restopedia_team.restopedia.API.ApiClient;
@@ -28,6 +30,7 @@ public class TabActivity1 extends AppCompatActivity {
 
     private LinearLayoutManager layoutManager;
 
+    private Button btnRefresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,15 @@ public class TabActivity1 extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         USERNAME = b.getString("username");
         API_KEY = b.getString("api_key");
+
+        btnRefresh = (Button) findViewById(R.id.btnRefresh);
+
+        btnRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getAllKonten();
+            }
+        });
 
 
         getAllKonten();

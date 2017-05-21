@@ -9,4 +9,34 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.restopedia_team.restopedia.TabActivity3">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="List All Resto"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical" />
+        </LinearLayout>
+    </ScrollView>
+
 </RelativeLayout>

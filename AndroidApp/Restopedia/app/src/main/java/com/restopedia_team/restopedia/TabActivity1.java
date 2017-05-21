@@ -45,7 +45,7 @@ public class TabActivity1 extends AppCompatActivity {
     void getAllKonten()
     {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<UserKonten> call = apiService.getAllKonten(USERNAME, API_KEY);
+        Call<UserKonten> call = apiService.getAllKonten(API_KEY);
         call.enqueue(new Callback<UserKonten>() {
             @Override
             public void onResponse(Call<UserKonten> call, Response<UserKonten> response) {
@@ -61,7 +61,7 @@ public class TabActivity1 extends AppCompatActivity {
                 recyclerView.setLayoutManager(layoutManager);
 
                 RecyclerViewAdapter recyclerViewAdapter =
-                        new RecyclerViewAdapter(restoList);
+                        new RecyclerViewAdapter(restoList, 0);
 
                 recyclerView.setAdapter(recyclerViewAdapter);
             }

@@ -18,9 +18,11 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
 
     private List<KontenDatum> item;
+    private int status;
 
-    public RecyclerViewAdapter(List<KontenDatum> list) {
+    public RecyclerViewAdapter(List<KontenDatum> list, int status) {
         this.item = list;
+        this.status = status;
     }
 
     @Override
@@ -28,7 +30,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
         View layoutView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recycler_view_row, null);
 
-        RecyclerViewHolder recyclerViewHolder = new RecyclerViewHolder(layoutView);
+        RecyclerViewHolder recyclerViewHolder = new RecyclerViewHolder(layoutView, status);
 
         return recyclerViewHolder;
     }
@@ -41,6 +43,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
         holder.detil = item.get(position).getDetailResto();
         holder.alamat = item.get(position).getAlamat();
         holder.kota = item.get(position).getKota();
+        holder.id = item.get(position).getIDResto();
     }
 
     @Override

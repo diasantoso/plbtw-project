@@ -22,7 +22,6 @@ public interface ApiInterface {
     @POST("login")
     Call<UserLogin> login(@Field("username") String username, @Field("password") String password, @Field("api_key") String api_key);
 
-
     @FormUrlEncoded
     @POST("signUp")
     Call<StatusMessage> signUp(@Field("username") String username, @Field("password") String password, @Field("api_key") String api_key);
@@ -35,5 +34,12 @@ public interface ApiInterface {
     Call<UserInfo> getUserInfo(@Query("username") String username, @Query("api_key") String api_key);
 
     @GET("getAllKonten")
-    Call<UserKonten> getAllKonten(@Query("username") String username, @Query("api_key") String api_key);
+    Call<UserKonten> getAllKonten(@Query("api_key") String api_key);
+
+    @GET("getMyKonten")
+    Call<UserKonten> getMyKonten(@Query("username") String username, @Query("api_key") String api_key);
+
+    @FormUrlEncoded
+    @POST("delKonten")
+    Call<StatusMessage> delKonten(@Field("api_key") String api_key, @Field("id_resto") String id_resto);
 }

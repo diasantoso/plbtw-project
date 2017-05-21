@@ -29,15 +29,9 @@ public class KontenDatum {
     @SerializedName("Gambar")
     @Expose
     private String gambar;
-    @SerializedName("Jumlah_Likes")
-    @Expose
-    private int jumlahLikes;
     @SerializedName("Created_at")
     @Expose
     private String createdAt;
-    @SerializedName("Flag")
-    @Expose
-    private List<Flag> flag = null;
 
     public String getIDResto() {
         return iDResto;
@@ -95,13 +89,6 @@ public class KontenDatum {
         this.gambar = gambar;
     }
 
-    public int getJumlahLikes() {
-        return jumlahLikes;
-    }
-
-    public void setJumlahLikes(int jumlahLikes) {
-        this.jumlahLikes = jumlahLikes;
-    }
 
     public String getCreatedAt() {
         return createdAt;
@@ -110,13 +97,4 @@ public class KontenDatum {
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
-
-    public List<Flag> getFlag() {
-        return flag;
-    }
-
-    public void setFlag(List<Flag> flag) {
-        this.flag = flag;
-    }
-
 }

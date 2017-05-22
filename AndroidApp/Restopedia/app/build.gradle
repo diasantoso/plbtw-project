@@ -48,4 +48,6 @@ dependencies {
 
     //lovely dialog
     compile 'com.github.yarolegovich:LovelyDialog:7376343d86'
+
+    compile 'cn.pedant.sweetalert:library:1.3'
 }

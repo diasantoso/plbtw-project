@@ -16,7 +16,7 @@
 
         <ImageView
             android:id="@+id/cover"
-            android:layout_width="370dp"
+            android:layout_width="420dp"
             android:layout_height="190dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"

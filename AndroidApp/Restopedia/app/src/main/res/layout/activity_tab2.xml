@@ -5,13 +5,25 @@
     android:layout_height="match_parent"
     tools:context="com.restopedia_team.restopedia.TabActivity2">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="List All Resto"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
     <Button
         android:id="@+id/gallery"
         android:text="Gallery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="70dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
@@ -19,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="70dp"
         android:text="Camera"
         android:id="@+id/camera"
         android:layout_alignParentTop="true"

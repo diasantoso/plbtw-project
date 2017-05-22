@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home">&#xf015;</string>
+    <string name="upload">&#xf1d8;</string>
+    <string name="gallery">&#xf03e;</string>
+    <string name="profile">&#xf007;</string>
+</resources>

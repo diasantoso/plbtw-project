@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.restopedia_team.restopedia">
+
+    <uses-feature android:name="android.hardware.camera2"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/restopedia"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        tools:replace="android:icon"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.plbtw_asek.restopedia.SplashScreen"
+            android:label="@string/app_name"
+            android:noHistory="true"
+            android:theme="@style/AppTheme.Dark">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.plbtw_asek.restopedia.LoginActivity"
+            android:theme="@style/AppTheme.Dark" />
+        <activity
+            android:name="com.plbtw_asek.restopedia.SignupActivity"
+            android:theme="@style/AppTheme.Dark" />
+
+        <activity android:name="com.plbtw_asek.restopedia.NavigationActivity"
+            android:theme="@style/AppTheme.Dark" />
+        <activity android:name="com.plbtw_asek.restopedia.TabActivity1"
+            android:theme="@style/AppTheme.Dark" />
+        <activity android:name="com.plbtw_asek.restopedia.TabActivity2"
+            android:theme="@style/AppTheme.Dark" />
+        <activity android:name="com.plbtw_asek.restopedia.TabActivity3"
+            android:theme="@style/AppTheme.Dark" />
+    </application>
+
+</manifest>

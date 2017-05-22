@@ -50,6 +50,8 @@ public class TabActivity3 extends Activity {
         getMyKonten();
     }
 
+    //////////////////////////////////////////////////// TAMPIL DATA PRIBADI ///////////////////////////////////////////
+
     void getMyKonten()
     {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);

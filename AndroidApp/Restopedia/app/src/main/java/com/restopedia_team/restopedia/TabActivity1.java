@@ -55,6 +55,7 @@ public class TabActivity1 extends AppCompatActivity {
         getAllKonten();
     }
 
+    ////////////////////////////// TAMPIL DATA ///////////////////////////////////////////////////
     void getAllKonten()
     {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
@@ -88,6 +89,7 @@ public class TabActivity1 extends AppCompatActivity {
         });
     }
 
+    ///////////////////////////////////////////////// LOGOUT ////////////////////////////////////////////////////////////
     @Override
     public void onBackPressed() {
 

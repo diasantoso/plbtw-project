@@ -10,9 +10,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30dp"
-        android:text="List All Resto"
-        android:layout_marginLeft="10dp"
+        android:text="Upload New Resto"
+        android:layout_marginLeft="75dp"
         android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
         android:textStyle="bold"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
@@ -109,6 +110,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"
+            android:layout_marginTop="20dp"
             android:text="Upload"
             android:layout_alignBottom="@+id/textInputLayout"
             android:layout_alignParentStart="true" />

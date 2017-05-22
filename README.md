@@ -16,8 +16,7 @@ Berikut beberapa screenshot tampilan dari Restopedia :
 
 (Tampilan Sign Up)
 
-<img alt="Restopedia Tampilan Home (Semua Konten)" height="300" src="https://github.com/diasantoso/plbtw-project/blob/master/Documentation/30302.jpg">
-<img alt="Restopedia Tampilan Home (Semua Konten)" height="300" src="https://github.com/diasantoso/plbtw-project/blob/master/Documentation/30303.jpg">
+<img alt="Restopedia Tampilan Home (Semua Konten)" height="300" src="https://github.com/diasantoso/plbtw-project/blob/master/Documentation/30302.jpg"> <img alt="Restopedia Tampilan Home (Semua Konten)" height="300" src="https://github.com/diasantoso/plbtw-project/blob/master/Documentation/30303.jpg">
 
 (Tampilan Semua Konten)
 
@@ -25,8 +24,7 @@ Berikut beberapa screenshot tampilan dari Restopedia :
 
 (Tampilan Tambah Konten)
 
-<img alt="Restopedia Tampilan Konten Pribadi" height="300" src="https://github.com/diasantoso/plbtw-project/blob/master/Documentation/30305.jpg">
-<img alt="Restopedia Tampilan Konten Pribadi" height="300" src="https://github.com/diasantoso/plbtw-project/blob/master/Documentation/30306.jpg">
+<img alt="Restopedia Tampilan Konten Pribadi" height="300" src="https://github.com/diasantoso/plbtw-project/blob/master/Documentation/30305.jpg"> <img alt="Restopedia Tampilan Konten Pribadi" height="300" src="https://github.com/diasantoso/plbtw-project/blob/master/Documentation/30306.jpg">
 
 (Tampilan Konten Pribadi)
 

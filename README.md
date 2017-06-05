@@ -28,6 +28,9 @@ Berikut beberapa screenshot tampilan dari Restopedia :
 
 (Tampilan Konten Pribadi)
 
+<iframe width="300" height="300" src="https://www.youtube.com/embed/g_mX291x_E4" frameborder="0" allowfullscreen></iframe>
+<iframe width="300" height="300" src="https://www.youtube.com/embed/iixddOrrh38" frameborder="0" allowfullscreen></iframe>
+
 Tugas kelompok PLBTW UAJY
 <ul><li>Eric Simahan
 <li>	Nirmala Agatha Santoso

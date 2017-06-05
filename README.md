@@ -28,8 +28,8 @@ Berikut beberapa screenshot tampilan dari Restopedia :
 
 (Tampilan Konten Pribadi)
 
-<iframe width="300" height="300" src="https://www.youtube.com/embed/g_mX291x_E4" frameborder="0" allowfullscreen></iframe>
-<iframe width="300" height="300" src="https://www.youtube.com/embed/iixddOrrh38" frameborder="0" allowfullscreen></iframe>
+[![Restopedia](https://img.youtube.com/vi/g_mX291x_E4/0.jpg)](http://www.youtube.com/watch?v=g_mX291x_E4)
+[![Restopedia](https://img.youtube.com/vi/iixddOrrh38/0.jpg)](http://www.youtube.com/watch?v=iixddOrrh38)
 
 Tugas kelompok PLBTW UAJY
 <ul><li>Eric Simahan
